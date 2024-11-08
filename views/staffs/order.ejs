@@ -1,0 +1,129 @@
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="card">
+                        <h6 class="sub-title mb-0 bg-light text-dark"style="font-size: 16px; padding: 10px; font-weight: 900">Order</h6>
+                            <div class="card-block">
+                                        <form method="post" action="/addOrder" enctype="multipart/form-data">
+                                            <div>
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">Bàn số</label>
+                                                    <div class="col-sm-10">
+                                                        <% if (table.length > 0) { %>
+                                                            <select name="tableID" class="form-control form-control-primary">
+                                                                <% table.forEach(function(bt) { %>
+                                                                    <option value="<%= bt.tableID %>">Bàn số <%= bt.tablenumber %></option>
+                                                                <% }); %>
+                                                            </select>
+                                                        <% } else { %>
+                                                            <input type="text" class="form-control form-control-danger" style="border-radius: 5px;" placeholder="Không có bàn trống" readonly>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
+                                                <div id="dish-container">
+                                                    <div class="form-group">
+                                                        <div class="d-flex">
+                                                            <div class="row" style="flex: 6; margin-right: 10px;">
+                                                                <label class="col-sm-4 col-form-label">Món thứ 1</label>
+                                                                <div class="col-sm-7">
+                                                                    <select name="dishID[]" class="form-control form-control-primary">
+                                                                        <% menu.forEach(function(monan) { %>
+                                                                            <option value="<%= monan.dish %>"><%= monan.dish %></option>
+                                                                        <% }); %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="flex: 4;">
+                                                                <label class="col-sm-4 col-form-label">Số lượng</label>
+                                                                <div class="col-sm-3">
+                                                                    <input type="number" name="quantity[]" class="form-control form-control-primary"
+                                                                           placeholder="Số lượng" style="border-radius: 5px;" required
+                                                                           oninput="validateInput(this)" 
+                                                                           oninvalid="this.setCustomValidity('Vui lòng nhập số lượng')"
+                                                                           onfocus="this.setCustomValidity('')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <!-- Trường yêu cầu đặc biệt nằm bên dưới -->
+                                                        <div class="row mt-2">
+                                                            <label class="col-sm-4 col-form-label">Yêu cầu</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" name="note[]" class="form-control form-control-secondary" 
+                                                                       placeholder="Nhập yêu cầu" style="border-radius: 5px;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <button type="button" onclick="addDishField()">Thêm món</button>
+
+                                                <script>
+                                                let dishCount = 1;
+
+                                                function addDishField() {
+                                                    dishCount++;
+                                                    const dishContainer = document.getElementById("dish-container");
+                                                    const newField = document.createElement("div");
+                                                    newField.classList.add("form-group");
+                                                    
+                                                    newField.innerHTML = `
+                                                        <div class="d-flex">
+                                                            <div class="row" style="flex: 6; margin-right: 10px;">
+                                                                <label class="col-sm-4 col-form-label">Món thứ ${dishCount}</label>
+                                                                <div class="col-sm-7">
+                                                                    <select name="dishID[]" class="form-control form-control-primary">
+                                                                        <% menu.forEach(function(monan) { %>
+                                                                            <option value="<%= monan.dish %>"><%= monan.dish %></option>
+                                                                        <% }); %>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row" style="flex: 4;">
+                                                                <label class="col-sm-4 col-form-label">Số lượng</label>
+                                                                <div class="col-sm-3">
+                                                                    <input type="number" name="quantity[]" class="form-control form-control-primary"
+                                                                           placeholder="Số lượng" style="border-radius: 5px;" required
+                                                                           oninput="validateInput(this)" 
+                                                                           oninvalid="this.setCustomValidity('Vui lòng nhập số lượng')"
+                                                                           onfocus="this.setCustomValidity('')">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="row mt-2">
+                                                            <label class="col-sm-4 col-form-label">Yêu cầu</label>
+                                                            <div class="col-sm-8">
+                                                                <input type="text" name="note[]" class="form-control form-control-secondary" 
+                                                                       placeholder="Nhập yêu cầu" style="border-radius: 5px;">
+                                                            </div>
+                                                        </div>
+                                                    `;
+                                                    
+                                                    dishContainer.appendChild(newField);
+                                                }
+
+                                                function validateInput(input) {
+                                                    if (input.value.trim() === '') {
+                                                        input.setCustomValidity('Vui lòng nhập số lượng');
+                                                    } else {
+                                                        input.setCustomValidity('');
+                                                    }
+                                                }
+                                                </script>
+                                                <div class="d-flex justify-content-center nutthem" style="margin-top: 10px;">
+                                                    <input type="submit" class="btn btn-success btn-round hor-grd btn-grd-success" name="order" value="Order">
+                                                </div>
+                                            </div>
+                                        </form>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

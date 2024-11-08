@@ -1,0 +1,90 @@
+<div class="pcoded-content">
+    <div class="pcoded-inner-content">
+        <div class="main-body">
+            <div class="page-wrapper">
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card shadow-sm">
+                                <div class="card-header bg-light text-dark" style="padding: 1rem;">
+                                    <h6 class="mb-0" lang="db-thongtinsinhvien" style="font-size: 16px;">Thông tin nhân viên</h6>
+                                </div>
+                                <div class="card-body" style="padding: 1rem;">
+                                    <div class="row align-items-center">
+                                        <!-- Profile Picture -->
+                                        <div class="col-sm-3 text-center">
+                                            <img src="../../../images/employee/<%= employee.avatar %>" class="img-fluid rounded-circle mb-2" alt="Avatar" style="width: 80px; height: 80px; object-fit: cover;">
+                                            <a href="#" class="btn btn-outline-primary btn-sm" style="font-size: 13px;" lang="db-chitiet-button">Cập nhật thông tin</a>
+                                        </div>
+                                        
+                                        <!-- Profile Information -->
+                                        <div class="col-sm-9">
+                                            <div class="row mb-1">
+                                                <div class="col-6" style="font-size: 14px;"><strong>MSNV:</strong> <%= employee.employeeID %></div>
+                                                <div class="col-6" style="font-size: 14px;"><strong>Chi nhánh:</strong> <%= employee.branchID %></div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-6" style="font-size: 14px;"><strong>Họ tên:</strong> <%= employee.fullname %></div>
+                                                <div class="col-6" style="font-size: 14px;"><strong>Bắt đầu từ:</strong> <%= createAT %></div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-6" style="font-size: 14px;"><strong>Giới tính:</strong> <%= employee.gender %></div>
+                                                <div class="col-6" style="font-size: 14px;"><strong>Chức vụ:</strong> <%= employee.role %></div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-6" style="font-size: 14px;"><strong>Ngày sinh:</strong> <%= birthday %></div>
+                                                <div class="col-6" style="font-size: 14px;"><strong>Số điện thoại:</strong> <%= employee.phone %></div>
+                                            </div>
+                                            <div class="row mb-1">
+                                                <div class="col-6" style="font-size: 14px;"><strong>Địa chỉ:</strong> <%= employee.address %></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <!-- Thông báo mới -->
+                            <div class="col-md">
+                                <div class="card shadow-sm">
+                                    <div class="item-box-menu box-df nhacnho-border p-3" style="border-radius: 8px; height: 90px;">
+                                        <h4 class="name nhacnho-custom mb-2" lang="db-nhacnho" style="font-size: 18px; font-weight: bold; color: #333;">Thông báo mới</h4>
+                                        <div class="desc d-flex align-items-center justify-content-between">
+                                            <div class="number nhacnho-custom text-center" style="width: 50px; font-size: 18px; color: #007bff;">0</div>
+                                            <div class="text-runing" style="flex-grow: 1; height: 30px; border-left: 1px solid #ddd; text-align: right;">
+                                                <p class="mb-0" style="font-size: 14px; color: #555;">Không có thông báo mới</p>
+                                            </div>
+                                            <div class="icon-menu ml-2">
+                                                <i class="fa fa-bell-o" style="font-size: 24px; color: #007bff;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Lịch làm trong tuần -->
+                            <div class="col-md">
+                                <div class="card shadow-sm">
+                                    <div class="item-box-menu box-df nhacnho-border p-3" style="border-radius: 8px; height: 90px;">
+                                        <h4 class="name nhacnho-custom mb-2" lang="db-nhacnho" style="font-size: 18px; font-weight: bold; color: #333;">Lịch làm trong tuần</h4>
+                                        <div class="desc d-flex align-items-center justify-content-between">
+                                            <div class="number nhacnho-custom text-center" style="width: 50px; font-size: 18px; color: #007bff;">0</div>
+                                            <div class="text-runing" style="flex-grow: 1; height: 30px; border-left: 1px solid #ddd; text-align: right;">
+                                                <p class="mb-0" style="font-size: 14px; color: #555;">Không có lịch làm trong tuần</p>
+                                            </div>
+                                            <div class="icon-menu ml-2">
+                                                <i class="fa fa-calendar" style="font-size: 24px; color: #007bff;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
